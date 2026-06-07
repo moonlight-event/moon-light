@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1200" />
-  <title>moon-light</title>
+  <title>MOON LIGHT</title>
 
   <style>
     * { box-sizing: border-box; }
 
     body {
       font-family: Arial, sans-serif;
-      background: #faf7f5;
+      background: #0f0f14;
       margin: 0;
       padding: 0;
-      color: #5c4033;
+      color: #f8f5ee;
     }
 
     .hero {
@@ -22,48 +22,61 @@
       height: 150px;
       overflow: hidden;
       margin-bottom: 8px;
-      background: #e9dfd2;
+      background: linear-gradient(180deg, #15151c, #0f0f14);
       border-bottom-left-radius: 28px;
       border-bottom-right-radius: 28px;
+      border-bottom: 2px solid #d4af37;
     }
 
     .hero::after {
       content: "";
       position: absolute;
       left: -8%;
-      bottom: -18px;
+      bottom: -20px;
       width: 116%;
-      height: 100px;
-      background: #1f2747;
+      height: 95px;
+      background: linear-gradient(90deg, #b8860b, #f1d36b, #b8860b);
       border-top-left-radius: 55% 100%;
       border-top-right-radius: 55% 100%;
       transform: rotate(-4deg);
+      opacity: 0.9;
     }
 
     .title-under-header {
       text-align: center;
-      font-size: 28px;
-      font-weight: 700;
-      color: #5c4033;
+      font-size: 30px;
+      font-weight: 800;
+      color: #d4af37;
       margin: 10px 12px 18px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #f8f5ee;
+      margin-top: -12px;
+      margin-bottom: 20px;
+      font-size: 16px;
     }
 
     .container {
       width: 1100px;
       margin: 0 auto 24px;
-      background: #fff;
+      background: #1a1a22;
       padding: 24px;
       border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+      border: 1px solid #3a3322;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.45);
     }
 
     h3 {
-      background: #f5e9e2;
-      color: #5c4033;
+      background: linear-gradient(90deg, #b8860b, #f1d36b, #b8860b);
+      color: #111;
       padding: 12px 16px;
       border-radius: 8px;
       margin: 18px 0 12px;
       font-size: 22px;
+      text-align: center;
     }
 
     .grid {
@@ -82,7 +95,7 @@
 
     .field label {
       font-weight: bold;
-      color: #5c4033;
+      color: #d4af37;
       line-height: 1.5;
     }
 
@@ -91,10 +104,15 @@
       box-sizing: border-box;
       padding: 12px 10px;
       font-size: 15px;
-      border: 1px solid #d9c8bc;
+      border: 1px solid #4a3a19;
       border-radius: 8px;
-      background: #fff;
-      color: #5c4033;
+      background: #111117;
+      color: #f8f5ee;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #aaa;
     }
 
     textarea {
@@ -102,29 +120,23 @@
       min-height: 120px;
     }
 
-    .table-wrap {
-      width: 100%;
-      overflow: visible;
-      border-radius: 8px;
-    }
-
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
-      background: #fff;
+      background: #111117;
     }
 
     th, td {
-      border: 1px solid #d9c8bc;
+      border: 1px solid #4a3a19;
       padding: 10px;
       text-align: center;
       vertical-align: middle;
     }
 
     th {
-      background: #fbf6f2;
-      color: #5c4033;
+      background: linear-gradient(90deg, #b8860b, #f1d36b, #b8860b);
+      color: #111;
       font-weight: bold;
     }
 
@@ -148,8 +160,8 @@
     .btn-add {
       width: auto;
       min-width: 150px;
-      background: #a67b5b;
-      color: white;
+      background: linear-gradient(90deg, #b8860b, #f1d36b, #b8860b);
+      color: #111;
       border: none;
       cursor: pointer;
       font-weight: bold;
@@ -159,7 +171,7 @@
       width: auto;
       padding: 8px 12px;
       cursor: pointer;
-      background: #5c4033;
+      background: #7a1f1f;
       color: white;
       border: none;
       font-weight: bold;
@@ -167,12 +179,13 @@
 
     .total-box {
       margin-top: 14px;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: bold;
-      color: #5c4033;
-      background: #f5e9e2;
-      padding: 12px;
+      background: linear-gradient(90deg, #b8860b, #f1d36b, #b8860b);
+      color: #111;
+      padding: 14px;
       border-radius: 8px;
+      text-align: center;
     }
 
     .print-btn-container {
@@ -180,8 +193,8 @@
     }
 
     .print-btn-container button {
-      background: #a67b5b;
-      color: white;
+      background: linear-gradient(90deg, #b8860b, #f1d36b, #b8860b);
+      color: #111;
       border: none;
       cursor: pointer;
       font-weight: bold;
@@ -191,10 +204,10 @@
       display: flex;
       align-items: stretch;
       width: 100%;
-      border: 1px solid #d9c8bc;
+      border: 1px solid #4a3a19;
       border-radius: 8px;
       overflow: hidden;
-      background: #fff;
+      background: #111117;
     }
 
     .item-combo input {
@@ -206,6 +219,7 @@
       border: none;
       border-radius: 0;
       background: transparent;
+      color: #f8f5ee;
     }
 
     .item-combo select {
@@ -214,10 +228,10 @@
       padding: 10px 8px;
       font-size: 13px;
       border: none;
-      border-right: 1px solid #d9c8bc;
+      border-right: 1px solid #4a3a19;
       border-radius: 0;
-      background: #fff;
-      color: #5c4033;
+      background: #111117;
+      color: #f8f5ee;
       cursor: pointer;
     }
 
@@ -231,6 +245,7 @@
         width: 100%;
         overflow: visible !important;
         background: #fff !important;
+        color: #000 !important;
       }
 
       body {
@@ -241,25 +256,95 @@
       }
 
       .hero {
-        margin-bottom: 6px !important;
-        height: 120px !important;
+        height: auto !important;
+        background: #fff !important;
+        border: none !important;
+        margin: 0 0 6px !important;
+      }
+
+      .hero::after {
+        display: none !important;
       }
 
       .title-under-header {
+        color: #000 !important;
         font-size: 24px !important;
-        margin: 6px 0 14px !important;
+        margin: 0 0 4px !important;
+        letter-spacing: 0 !important;
+      }
+
+      .subtitle {
+        color: #000 !important;
+        font-size: 13px !important;
+        margin: 0 0 12px !important;
       }
 
       .container {
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
-        padding: 10px !important;
+        padding: 8px !important;
+        background: #fff !important;
+        color: #000 !important;
         box-shadow: none !important;
         border: none !important;
         border-radius: 0 !important;
-        transform: scale(0.50);
+        transform: scale(0.82);
         transform-origin: top center;
+      }
+
+      h3 {
+        background: #e9e9e9 !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+        font-size: 18px !important;
+        padding: 8px !important;
+      }
+
+      label {
+        color: #000 !important;
+      }
+
+      input, select, textarea {
+        background: #fff !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+      }
+
+      table {
+        background: #fff !important;
+        color: #000 !important;
+      }
+
+      th {
+        background: #e9e9e9 !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+      }
+
+      td {
+        background: #fff !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+      }
+
+      .item-combo {
+        background: #fff !important;
+        border: 1px solid #000 !important;
+      }
+
+      .item-combo input,
+      .item-combo select {
+        background: #fff !important;
+        color: #000 !important;
+        border-color: #000 !important;
+      }
+
+      .total-box {
+        background: #e9e9e9 !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+        font-size: 20px !important;
       }
 
       .btn-add,
@@ -276,6 +361,7 @@
   <header class="hero"></header>
 
   <div class="title-under-header">MOON LIGHT</div>
+  <div class="subtitle">Event And Wedding Organizer</div>
 
   <div class="container">
     <div class="grid">
@@ -298,14 +384,18 @@
         <label>نوع الحفلة</label>
         <select>
           <option value="">اختر</option>
-          <option>ملكة</option>
           <option>زواج</option>
+          <option>ملكة</option>
           <option>تخرج</option>
           <option>استقبال</option>
+          <option>خطوبة</option>
+          <option>عقد قران</option>
+          <option>استقبال مولود</option>
           <option>عيد ميلاد</option>
-          <option>اجتماع/ملتقى</option>
-          <option>مناسبة وطنية</option>
-          <option>مناسبة عيد</option>
+          <option>افتتاح</option>
+          <option>تكريم</option>
+          <option>مناسبة خاصة</option>
+          <option>أخرى</option>
         </select>
       </div>
 
@@ -341,20 +431,18 @@
 
     <h3>بيانات الفاتورة</h3>
 
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>الصنف</th>
-            <th>العدد</th>
-            <th>السعر</th>
-            <th>الإجمالي</th>
-            <th>حذف</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody"></tbody>
-      </table>
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>الصنف</th>
+          <th>العدد</th>
+          <th>السعر</th>
+          <th>الإجمالي</th>
+          <th>حذف</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
 
     <div class="actions">
       <button type="button" class="btn-add" onclick="addRow()">+ إضافة سطر</button>
