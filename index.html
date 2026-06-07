@@ -235,39 +235,9 @@
       font-weight: bold;
     }
 
-    .item-combo {
-      display: flex;
-      align-items: stretch;
+    .item-input {
       width: 100%;
-      border: 1px solid #d4af37;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #ffffff;
-    }
-
-    .item-combo input {
-      flex: 1;
-      min-width: 0;
-      width: 100%;
-      padding: 10px 6px;
-      font-size: 13px;
-      border: none;
-      border-radius: 0;
-      background: transparent;
-      color: #111111;
-    }
-
-    .item-combo select {
-      width: 85px;
-      min-width: 85px;
-      padding: 10px 5px;
-      font-size: 12px;
-      border: none;
-      border-right: 1px solid #d4af37;
-      border-radius: 0;
-      background: #ffffff;
-      color: #111111;
-      cursor: pointer;
+      text-align: center;
     }
 
     @page {
@@ -333,16 +303,12 @@
         border-color: #d4af37 !important;
       }
 
-      input, select, textarea, table, th, td,
-      .summary-box, .item-combo, .item-combo input, .item-combo select {
+      input, select, textarea, table, th, td, .summary-box {
         border-color: #d4af37 !important;
         color: #111111 !important;
       }
 
-      input, select, textarea,
-      .item-combo,
-      .item-combo input,
-      .item-combo select {
+      input, select, textarea {
         background: #ffffff !important;
       }
 
@@ -374,18 +340,6 @@
       input, select, textarea {
         font-size: 11px !important;
         padding: 6px !important;
-      }
-
-      .item-combo select {
-        width: 75px !important;
-        min-width: 75px !important;
-        font-size: 9px !important;
-        padding: 5px 2px !important;
-      }
-
-      .item-combo input {
-        font-size: 10px !important;
-        padding: 5px 3px !important;
       }
 
       .summary-grid {
@@ -434,8 +388,6 @@
         <label>تاريخ التحرير</label>
         <input type="date">
       </div>
-
-    
 
       <div class="field">
         <label>نوع الحفلة</label>
@@ -487,6 +439,62 @@
     </div>
 
     <h3>بيانات الفاتورة</h3>
+
+    <datalist id="itemsList">
+      <option value="تنسيق الكوشة">
+      <option value="تغيير لون ورد">
+      <option value="خلفية ستارة / بنر اختياري">
+      <option value="تنسيق المدخل">
+      <option value="تراس حسب التصميم">
+      <option value="تنسيق بودر روم">
+      <option value="خلفية كوشة">
+      <option value="بوفات VIP">
+      <option value="طاولة الحلويات والعلك">
+      <option value="تنسيق المغاسل">
+      <option value="طاولات خدمة VIP">
+      <option value="تنسيق البوابة + إضافة لوقو على البوابة">
+      <option value="طاولات استقبال">
+      <option value="تنسيق طاولات الخدمة">
+      <option value="طاولات خدمة">
+      <option value="خداديات">
+      <option value="بوفات">
+      <option value="ستاند عبايات">
+      <option value="تنسيق ممر خارجي">
+      <option value="تنسيق مسبح">
+      <option value="تنسيق طاولة طعام">
+      <option value="شاشة استقبال">
+      <option value="قهوجية">
+      <option value="صبابة">
+      <option value="عاملة ركن عطور">
+      <option value="عاملة ركن قهوة">
+      <option value="ستيج">
+      <option value="ممر">
+      <option value="ركن عطور">
+      <option value="ركن قهوة">
+      <option value="سجاد أحمر">
+      <option value="سجاد موف">
+      <option value="ورد أحمر">
+      <option value="ورد أبيض">
+      <option value="ورد بنفسجي">
+      <option value="ورد وردي">
+      <option value="ورد سماوي">
+      <option value="قهوجي">
+      <option value="صباب">
+      <option value="مساعدة قهوجية">
+      <option value="عاملة خدمة">
+      <option value="عامل نظافة">
+      <option value="عاملة نظافة">
+      <option value="مشرفة عامة">
+      <option value="مشرفة عبايات">
+      <option value="مشروب ترحيبي">
+      <option value="قهوة سعودية">
+      <option value="شاي أحمر">
+      <option value="شاي نعناع">
+      <option value="شاي ألوان">
+      <option value="كبتشينو">
+      <option value="قهوة تركية">
+      <option value="ماء">
+    </datalist>
 
     <table>
       <colgroup>
@@ -555,68 +563,16 @@
       return options;
     }
 
-    function fillItem(selectEl) {
-      const row = selectEl.closest("tr");
-      const input = row.querySelector(".item-input");
-
-      if (selectEl.value === "أخرى") {
-        input.value = "";
-        input.focus();
-      } else if (selectEl.value) {
-        input.value = selectEl.value;
-      }
-    }
-
     function rowHtml() {
       return `
         <tr>
           <td>
-            <div class="item-combo">
-              <select onchange="fillItem(this)">
-                <option value="">اختر</option>
-                <option value="تنسيق الكوشة">تنسيق الكوشة</option>
-                <option value="تغيير لون ورد">تغيير لون ورد</option>
-                <option value="خلغية ستارة / بنر ( اختياري ) ">خلفية ستاره / بنر ( اختياري )</option>
-                <option value="تنسيق المدخل">تنسيق المدخل</option>
-                <option value="تراس حسب التصميم">تراس حسب التصميم</option>
-                <option value="تنسيق بودر روم">تنسيق بودر روم</option>
-                <option value="خلفية كوشة">خلفية كوشة </option>
-                <option value="بوفات vip ">بوفات vip </option>
-                <option value="طاولة الحلويات والعلك">طاولة الحلويات والعلك</option>
-                <option value="تنسيق المغاسل">تنسيق المغاسل</option>
-                <option value="طاولات خدمة vip ">طاولات خدمة vip </option>
-                <option value="تنسيق البوابة + اضافة لوقو على البوابه ">تنسيق البوابه + اضافة لوقو على البوابه </option>
-                <option value="طاولات استقبال">طاولات استقبال</option>
-                <option value="تنسيق طاولات الخدمة">تنسيق طاولات الخدمة</option>
-                <option value="طاولات خدمة">طاولات خدمة</option>
-                <option value="خداديات">خداديات</option>
-                <option value="بوفات">بوفات</option>
-                <option value="ستاند عبايات">ستاند عبايات</option>
-                <option value="تنسيق ممر خارجي">تنسيق ممر خارجي</option>
-                <option value="تنسيق مسبح">تنسيق مسبح</option>
-                <option value="تنسيق طاولة طعام">تنسيق طاولة طعام</option>
-                <option value="شاشة استقبال">شاشة استقبال</option>
-                <option value="قهوجية">قهوجية</option>
-                <option value="صبابة">صبابة</option>
-                <option value="عاملة ركن عطور">عاملة ركن عطور</option>
-                <option value="عاملة ركن قهوة">عاملة ركن قهوة</option>
-                <option value="ستيج">ستيج</option>
-                <option value="ممر">ممر</option>
-                <option value="ركن عطور">ركن عطور</option>
-                <option value="ركن قهوة">ركن قهوة</option>
-                <option value="سجاد أحمر">سجاد أحمر</option>
-                <option value="سجاد موف">سجاد موف</option>
-                <option value="ورد أحمر">ورد أحمر</option>
-                <option value="ورد أبيض">ورد أبيض</option>
-                <option value="ورد بنفسجي">ورد بنفسجي</option>
-                <option value="ورد وردي">ورد وردي</option>
-                <option value="ورد سماوي">ورد سماوي</option>
-                <option value="قهوجي">قهوجي</option>
-                <option value="صباب">صباب</option>
-                <option value="أخرى">أخرى</option>
-              </select>
-              <input type="text" class="item-input" placeholder="اختر أو اكتب الصنف">
-            </div>
+            <input 
+              type="text" 
+              class="item-input" 
+              list="itemsList" 
+              placeholder="اكتب أو اختر الصنف"
+            >
           </td>
 
           <td>
